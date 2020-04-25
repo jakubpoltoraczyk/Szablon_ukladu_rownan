@@ -16,6 +16,12 @@ Vector<T,size>::Vector(const T * tab) // konstruktor przyjmujacy tablice jako sw
         data[i]=tab[i];
 }
 
+/*template <int size> 
+double Vector<Liczba>::lenght() const
+{
+
+}*/
+
 template <typename T,int size>
 T Vector<T,size>::operator [] (int n)const // metoda dostepu do poszczeglonych skladowych wektora (przeciazony [] wersja const)
 {
