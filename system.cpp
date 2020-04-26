@@ -2,11 +2,11 @@
 
 /* Jest to plik z definicjami wszelkich funkcji zwiazanymi z klasa System */
 
-template <template <template <typename T, int size> class Vector,typename T,int size> class Matrix,template <typename T,int size> class Vector, typename T, int size>
-Vector<T,size> System<Matrix,Vector,T,size>::solve()const // metoda rozwiazujaca rownanie i podajaca jego wynik w postaci wektora
+template <typename T, int size>
+Vector<T,size> System<T,size>::solve()const // metoda rozwiazujaca rownanie i podajaca jego wynik w postaci wektora
 {
     using std::abs;
-    Matrix<Vector,T,size> pom=get_matrix(); // pomocnicza macierz bedaca kopia macierzy rownania
+    Matrix<T,size> pom=get_matrix(); // pomocnicza macierz bedaca kopia macierzy rownania
     Vector<T,size> result; // pomocniczy wektor wynikowy
     T det[size]; // pomocnicza tablica, ktorej skladowe to dodatkowe wyznacznika rownania
     T det_main=get_matrix().det(); // zmienna okreslajaca wyznacznik glowny rownania
@@ -28,8 +28,8 @@ Vector<T,size> System<Matrix,Vector,T,size>::solve()const // metoda rozwiazujaca
     return Vector<T,size>(det); // zwrocenie wektora wynikowego
 }
 
-template <template <template <typename T, int size> class Vector,typename T,int size> class Matrix,template <typename T,int size> class Vector, typename T, int size>
-std::ostream & operator << (std::ostream & o, const System<Matrix,Vector,T,size> & u) // przeciazenie operatora << dla klasy System
+template <typename T, int size>
+std::ostream & operator << (std::ostream & o, const System<T,size> & u) // przeciazenie operatora << dla klasy System
 {
     using std::endl;
     o << "Macierz:\n\n" << u.get_matrix() << endl << endl; // wyswietlenie macierzy rownania
@@ -40,13 +40,13 @@ std::ostream & operator << (std::ostream & o, const System<Matrix,Vector,T,size>
     return o; // zwrocenie obiektu klasy ostream
 }
 
-template <template <template <typename T, int size> class Vector,typename T,int size> class Matrix,template <typename T,int size> class Vector, typename T, int size>
-std::istream & operator >> (std::istream & i, System<Matrix,Vector,T,size> & u) // przeciazenie operatora >> dla klasy System
+template <typename T, int size>
+std::istream & operator >> (std::istream & i, System<T,size> & u) // przeciazenie operatora >> dla klasy System
 {
-    Matrix<Vector,T,size> pom_mat; // pomocnicza macierz
+    Matrix<T,size> pom_mat; // pomocnicza macierz
     Vector<T,size> pom_vec; // pomocniczy wektor
     i >> pom_mat; // pobranie macierzy za pomoca przeciazonego dla niej operatora >> 
     i >> pom_vec; // pobranie wektora za pomoca przeciazonego dla niego operatora >> 
-    u=System<Matrix,Vector,T,size>(pom_mat,pom_vec); // przypisanie nowego ukladu rownan do orginalu za pomoca konstruktora
+    u=System<T,size>(pom_mat,pom_vec); // przypisanie nowego ukladu rownan do orginalu za pomoca konstruktora
     return i; // zwrocenie obiektu klasy istream
 }

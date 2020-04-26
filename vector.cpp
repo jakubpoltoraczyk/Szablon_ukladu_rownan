@@ -16,10 +16,13 @@ Vector<T,size>::Vector(const T * tab) // konstruktor przyjmujacy tablice jako sw
         data[i]=tab[i];
 }
 
-/*template <int size> 
-double Vector<Liczba>::lenght() const
+/*template <> 
+Liczba Vector<Liczba,5>::lenght() const
 {
-
+    Vector pom = *this;
+    for(int i=0;i<5;++i)
+        pom[i]=~pom[i];
+    return sqrt(*this*pom);
 }*/
 
 template <typename T,int size>

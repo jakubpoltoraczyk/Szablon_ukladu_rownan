@@ -7,7 +7,7 @@
 /* WAZNE - macierz interpretowana wierszowo - np. wektor(x1,y1,z1) sklada sie na pierwszy wiersz macierzy */
 /* WAZNE - macierz pobierana jest w postaci transponowanej - np. kolumna (x1,x2,x3) sklada sie na pierwszy wiersz pliku */
 
-template <template <typename T, int size> class Vector,typename T,int size>
+template <typename T,int size>
 class Matrix // klasa Matrix opisujaca matematyczna macierz
 {
 private:
@@ -28,9 +28,9 @@ public:
 };
 
 /* Funkcje bezposrednio zwiazane z klasa Matrix */
-template <template <typename T, int size_> class Vector,typename T,int size>
-std::ostream & operator << (std::ostream & o, const Matrix<Vector,T,size> & m); // przeciazenie operatora << dla macierzy
-template <template <typename T, int size_> class Vector,typename T,int size>
-std::istream & operator >> (std::istream & i, Matrix<Vector,T,size> & m); // przeciazenie operatora >> dla macierzy
+template <typename T,int size>
+std::ostream & operator << (std::ostream & o, const Matrix<T,size> & m); // przeciazenie operatora << dla macierzy
+template <typename T,int size>
+std::istream & operator >> (std::istream & i, Matrix<T,size> & m); // przeciazenie operatora >> dla macierzy
 
 #endif // MATRIX_H
