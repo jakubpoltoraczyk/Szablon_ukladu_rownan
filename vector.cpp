@@ -72,7 +72,7 @@ T Vector<T,size>::operator * (const Vector & v)const // metoda mnozaca przez sie
 }
 
 template <typename T,int size>
-Vector<T,size> Vector<T,size>::operator * (T n)const // metoda mnozaca wektor przez liczbe typu double
+Vector<T,size> Vector<T,size>::operator * (const T & n)const // metoda mnozaca wektor przez liczbe typu double
 {
     T tab[size]; // tablica pomocnicza sluzaca do zapamietania poszczegolnych nowych skladowych wektora
     for(int i=0;i<size;++i) // mnozenie poszczeglonych skladowych

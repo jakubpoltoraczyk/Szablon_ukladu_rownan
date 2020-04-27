@@ -21,7 +21,7 @@ public:
     Vector operator + (const Vector & v) const; // metoda dodajaca do siebie dwa wektory
     Vector operator - (const Vector & v) const; // metoda odejmujaca od siebie dwa wektory
     T operator * (const Vector & v)const; // metoda mnozaca ze soba dwa wektory
-    Vector operator * (T n)const; // metoda mnozaca wektor przez wartosc typu double
+    Vector operator * (const T & n)const; // metoda mnozaca wektor przez wartosc typu double
 };
 
 /* Funkcje bezposrednio zwiazane z klasa Vector */
