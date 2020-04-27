@@ -7,6 +7,9 @@ all: szablon clean
 szablon: main.o used_templates.o zesp_fun.o
 	g++ ${CPPFLAGS} -o szablon main.o used_templates.o zesp_fun.o
 
+main.o: main.cpp vector.h zesp_fun.h matrix.h system.h
+	g++ ${CPPFLAGS} -c main.cpp
+
 zesp_fun.o: zesp_fun.h zesp_fun.cpp 
 	g++ ${CPPFLAGS} -c zesp_fun.cpp
 
