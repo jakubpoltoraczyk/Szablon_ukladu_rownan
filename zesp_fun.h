@@ -16,7 +16,7 @@ public:
     const double & get_img()const{return img;} // metoda zwracajaca czesc urojona
     double get_modul()const{return real*real+img*img;} // metoda zwracajaca modul liczby zespolonej
     Liczba operator~()const; // metoda tworzaca sprzezenie liczby zespolonej
-    Liczba operator-(){real=-real; img=-img;} // metoda zmieniajaca oba znaki liczby zespolonej
+    Liczba operator-(){return Liczba(-real,-img);} // metoda zmieniajaca oba znaki liczby zespolonej
     Liczba operator+(const Liczba & l)const; // metoda dodawania dwoch liczb zespolonych
     const Liczba & operator+=(const Liczba & l){return *this=*this+l;} // metoda dodajaca dwie liczby zespolone (wersja skrocona)
     Liczba operator-(const Liczba & l)const; // metoda odejmowania dwoch liczb zespolonych
@@ -31,8 +31,9 @@ public:
     const Liczba & operator/=(double n){return *this=*this/n;} // to co wyzej (wersja skrocona)
     bool operator==(const Liczba & l)const; // metoda porownania rownosci dwoch liczb zespolonych
     bool operator!=(const Liczba & l)const; // metoda sprawdzania roznosci dwoch liczb zespolonych
-    bool operator>(double n)const;
-    void operator=(double n) {real=n; img=0.0;} // metoda zamieniajaca liczbe typu double na liczbe zespolona
+    bool operator>(double n)const; // metoda porownujaca (>) modul liczby zespolonej i liczbe typu double
+    bool operator<(double n)const; // metoda porownujaca (<) modul liczby zespolonej i liczbe typu double
+    const Liczba & operator=(double n); // metoda zamieniajaca liczbe typu double na liczbe zespolona
 };
 
 /* Funkcje bezposrednio zwiazane z klasa Liczba */

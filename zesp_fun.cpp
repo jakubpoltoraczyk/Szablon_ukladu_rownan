@@ -65,10 +65,25 @@ bool Liczba::operator!=(const Liczba &l)const
 
 bool Liczba::operator>(double n)const 
 {
-    if(std::abs(get_modul())>0.0000000001)
+    if(get_modul()>n)
         return true;
     else
         return false;
+}
+
+bool Liczba::operator<(double n)const 
+{
+    if(get_modul()<n)
+        return true;
+    else
+        return false;
+}
+
+const Liczba & Liczba::operator=(double n)
+{
+    real=n;
+    img=0.0;
+    return *this;
 }
 
 /* Metoda przeciazajaca operator << dla liczby zespolonej */
