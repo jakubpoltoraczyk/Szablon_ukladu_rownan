@@ -1,0 +1,17 @@
+#Makefile dla programu: Szablon_ukladu_rownan
+
+CPPFLAGS = -Wall -pedantic -std=c++17
+
+all: szablon clean
+
+szablon: main.o used_templates.o zesp_fun.o
+	g++ ${CPPFLAGS} -o szablon main.o used_templates.o zesp_fun.o
+
+zesp_fun.o: zesp_fun.h zesp_fun.cpp 
+	g++ ${CPPFLAGS} -c zesp_fun.cpp
+
+used_templates.o: used_templates.cpp
+	g++ ${CPPFLAGS} -c used_templates.cpp vector.cpp matrix.cpp system.cpp
+
+clean:
+	@rm -f *.o *~
