@@ -1,4 +1,7 @@
-#include "used_templates.cpp"
+#include "vector.h"
+#include "system.h"
+#include "matrix.h"
+#include "zesp_fun.h"
 #include <iostream>
 #include <fstream>
 
