@@ -35,8 +35,8 @@ std::ostream & operator << (std::ostream & o, const System<T,size> & u) // przec
     o << "Macierz:\n\n" << u.get_matrix() << endl << endl; // wyswietlenie macierzy rownania
     o << "Wektor wyrazow wolnych:\n\n" << u.get_vector() << endl << endl; // wyswietlenie wyrazow wolnych rownania
     o << "Rozwiazanie:\n\n" << u.solve() << endl << endl; // wyswietlenie wektora wynikowego rownania
-    //o << "Wektor bledu:\n\n" << u.vector_mistake() << endl << endl; // wyswietlenie wektora bledu
-    //o << "Wartosc bledu:\n\n" << u.value_of_mistake() << endl << endl;  // wyswietlenie wartosci bledu
+    o << "Wektor bledu:\n\n" << u.vector_mistake() << endl << endl; // wyswietlenie wektora bledu
+    o << "Wartosc bledu:\n\n" << u.value_of_mistake() << endl << endl;  // wyswietlenie wartosci bledu
     return o; // zwrocenie obiektu klasy ostream
 }
 

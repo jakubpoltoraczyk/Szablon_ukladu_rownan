@@ -15,8 +15,8 @@ public:
     const Matrix<T,size> & get_matrix() const {return mat;} // metoda zwracajaca macierz rownania
     const Vector<T,size> & get_vector() const {return vec;} // metoda zwracajaca wektor wyrazow wolnych rownania
     Vector<T,size> solve()const; // metoda rozwiazujaca rownanie za pomoca metody Cramera
-    //Vector<T,size> vector_mistake() const {return get_matrix()*solve()-get_vector();} // metoda wyznaczajaca wektor bledu rownania
-    //double value_of_mistake() const {return vector_mistake().lenght();} // metoda wyznaczajaca wartosc bledu rownania (dlugosc wektora bledu)
+    Vector<T,size> vector_mistake() const {return get_matrix()*solve()-get_vector();} // metoda wyznaczajaca wektor bledu rownania
+    double value_of_mistake() const {return vector_mistake().lenght();} // metoda wyznaczajaca wartosc bledu rownania (dlugosc wektora bledu)
 };
 
 /* Funkcje bezposrednio zwiazane z klasa System */

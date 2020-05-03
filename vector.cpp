@@ -16,14 +16,14 @@ Vector<T,size>::Vector(const T * tab) // konstruktor przyjmujacy tablice jako sw
         data[i]=tab[i];
 }
 
-/*template <> 
-Liczba Vector<Liczba,5>::lenght() const
+template <> 
+double Vector<Liczba,5>::lenght() const
 {
     Vector pom = *this;
     for(int i=0;i<5;++i)
         pom[i]=~pom[i];
     return sqrt(*this*pom);
-}*/
+}
 
 template <typename T,int size>
 T Vector<T,size>::operator [] (int n)const // metoda dostepu do poszczeglonych skladowych wektora (przeciazony [] wersja const)
